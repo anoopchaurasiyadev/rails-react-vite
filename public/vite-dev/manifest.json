@@ -1,0 +1,12 @@
+{
+  "application.js": {
+    "file": "assets/application.4f66dfd0.js",
+    "src": "application.js",
+    "isEntry": true
+  },
+  "index.jsx": {
+    "file": "assets/index.232253ce.js",
+    "src": "index.jsx",
+    "isEntry": true
+  }
+}
