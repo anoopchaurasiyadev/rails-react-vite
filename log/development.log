@@ -1,0 +1,89 @@
+  [1m[35m (365.2ms)[0m  [1m[35mCREATE DATABASE "test_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (172.9ms)[0m  [1m[35mCREATE DATABASE "test_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (80.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7992348028875656775)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20210812030123)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210812030123"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-03-28 07:12:57.127981"], ["updated_at", "2024-03-28 07:12:57.127981"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(7992348028875656775)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2024-03-28 12:43:05 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 303)
+Building with Vite ⚡️
+vite v2.9.18 building for development...
+
+transforming...
+
+✓ 29 modules transformed.
+
+rendering chunks...
+
+../../../public/vite-dev/manifest-assets.json             0.00 KiB
+
+../../../public/vite-dev/manifest.json                    0.22 KiB
+
+../../../public/vite-dev/assets/application.4f66dfd0.js   0.13 KiB / gzip: 0.13 KiB
+
+../../../public/vite-dev/assets/index.232253ce.js         279.52 KiB / gzip: 87.10 KiB
+
+Build with Vite complete: /home/atm/Desktop/projects/ak_projects/test-app/public/vite-dev
+Skipping vite build. Watched files have not changed since the last build at 2024-03-28 12:43:07
+  Rendered layout layouts/application.html.erb (Duration: 1760.1ms | Allocations: 19733)
+Completed 200 OK in 1765ms (Views: 1763.3ms | ActiveRecord: 0.0ms | Allocations: 21824)
+
+
+Started GET "/api/v1/articles" for ::1 at 2024-03-28 12:43:07 +0530
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1046)
+
+
+Started GET "/" for ::1 at 2024-03-28 12:43:28 +0530
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+Skipping vite build. Watched files have not changed since the last build at 2024-03-28 12:43:07
+Skipping vite build. Watched files have not changed since the last build at 2024-03-28 12:43:07
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 4311)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 4564)
+
+
+Started GET "/api/v1/articles" for ::1 at 2024-03-28 12:43:28 +0530
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 669)
+
+
+Started GET "/" for ::1 at 2024-03-28 12:44:29 +0530
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Skipping vite build. Watched files have not changed since the last build at 2024-03-28 12:43:07
+Skipping vite build. Watched files have not changed since the last build at 2024-03-28 12:43:07
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 4302)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4555)
+
+
+Started GET "/api/v1/articles" for ::1 at 2024-03-28 12:44:29 +0530
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 669)
+
+
